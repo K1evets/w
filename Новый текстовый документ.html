@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klevets - Рэп Музыка</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333333;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        label:hover {
+            background-color: #45a049;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Klevets - Рэп Музыка</h1>
+    </header>
+
+    <section>
+        <input type="file" id="fileInput" accept=".mp3" onchange="playAudio()">
+        <label for="fileInput">Выберите файл MP3 для прослушивания</label>
+        <audio controls id="audioPlayer"></audio>
+    </section>
+
+    <script>
+        function playAudio() {
+            const fileInput = document.getElementById('fileInput');
+            const audioPlayer = document.getElementById('audioPlayer');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const objectURL = URL.createObjectURL(file);
+                audioPlayer.src = objectURL;
+            }
+        }
+    </script>
+
+</body>
+</html>
